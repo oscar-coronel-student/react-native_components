@@ -13,12 +13,14 @@ export const InfiniteScrollScreen = () => {
     const loadMore = () => {
         console.log('LOAD MORE');
         setIsLoading(true);
-        const newNumbers: number[] = JSON.parse(JSON.stringify(numbers));
-        for(let iterator = 1 ; iterator <= 5 ; iterator++){
-            newNumbers.push( newNumbers.length );
-        }
-        setIsLoading(false);
-        setNumbers( newNumbers );
+        setTimeout(() => {
+            const newNumbers: number[] = JSON.parse(JSON.stringify(numbers));
+            for(let iterator = 1 ; iterator <= 5 ; iterator++){
+                newNumbers.push( newNumbers.length );
+            }
+            setIsLoading(false);
+            setNumbers( newNumbers );
+        }, 3000);
     }
 
     const RenderHeader = () => {
@@ -32,7 +34,7 @@ export const InfiniteScrollScreen = () => {
         return <>
             {
                 isLoading && <>
-                    <View style={{ alignItems: 'center', height: 160, paddingTop: 15 }}>
+                    <View style={{ alignItems: 'center', height: 160, paddingTop: 15, backgroundColor: 'black', justifyContent: 'center' }}>
                         <ActivityIndicator color={'gray'} size={ 30 } />
                     </View>
                 </>
@@ -60,7 +62,7 @@ export const InfiniteScrollScreen = () => {
                             loadMore();
                         }
                     }}
-                    onEndReachedThreshold={ 0 }
+                    onEndReachedThreshold={ 0.6 }
                 /> 
             </View>
         </>

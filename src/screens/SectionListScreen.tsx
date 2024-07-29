@@ -67,8 +67,6 @@ export const SectionListScreen = () => {
                         </View>
                     ) }
 
-                    
-
                     showsVerticalScrollIndicator={ false }
                 />
             </View>

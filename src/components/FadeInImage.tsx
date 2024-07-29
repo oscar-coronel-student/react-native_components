@@ -18,7 +18,7 @@ export const FadeInImage = ({ uri, fadeDuration = 1000, contentStyle = {}, image
 
     
     const { onFadeIn, opacity } = useAnimation({
-        fadeDuration: fadeDuration
+        fadeDuration: 1000
     });
 
     const [isLoading, setIsLoading] = useState(true);
