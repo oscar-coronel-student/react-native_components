@@ -11,6 +11,10 @@ import { PullToRefreshScreen } from "../screens/PullToRefreshScreen"
 import { SectionListScreen } from "../screens/SectionListScreen"
 import { ModalScreen } from "../screens/ModalScreen"
 import { InfiniteScrollScreen } from "../screens/InfiniteScrollScreen"
+import { SlideScreen } from "../screens/SlideScreen"
+import { ThemeScreen } from "../screens/ThemeScreen"
+import { useContext } from "react"
+import { ThemeContext } from "../context/ThemeContext"
 
 
 export type StackPropsRoot = {
@@ -24,17 +28,22 @@ export type StackPropsRoot = {
     SectionListScreen: undefined
     ModalScreen: undefined
     InfiniteScrollScreen: undefined
+    SlideScreen: undefined
+    ThemeScreen: undefined
 }
 
 const Stack = createStackNavigator<StackPropsRoot>()
 
 export const StackNavigator = () => {
+
+    const { colors } = useContext( ThemeContext );
+
     return (
         <Stack.Navigator
             screenOptions={{
                 headerShown: false,
                 cardStyle: {
-                    backgroundColor: 'white'
+                    backgroundColor: colors.background
                 }
             }}
         >
@@ -48,6 +57,8 @@ export const StackNavigator = () => {
             <Stack.Screen name="SectionListScreen" component={ SectionListScreen } />
             <Stack.Screen name="ModalScreen" component={ ModalScreen } />
             <Stack.Screen name="InfiniteScrollScreen" component={ InfiniteScrollScreen } />
+            <Stack.Screen name="SlideScreen" component={ SlideScreen } />
+            <Stack.Screen name="ThemeScreen" component={ ThemeScreen } />
         </Stack.Navigator>
     )
 }

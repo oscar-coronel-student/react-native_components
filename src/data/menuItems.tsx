@@ -55,4 +55,16 @@ export const menuItems: ExampleData[] = [
         icon: 'scroll',
         component: 'InfiniteScrollScreen'
     },
+    {
+        id: 10,
+        name: 'Slides',
+        icon: 'sun',
+        component: 'SlideScreen'
+    },
+    {
+        id: 11,
+        name: 'Themes',
+        icon: 'flask',
+        component: 'ThemeScreen'
+    },
 ]
